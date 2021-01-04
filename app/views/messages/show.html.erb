@@ -1,0 +1,27 @@
+<h1>Message Show Page</h1>
+
+  <h3><%= @message.comment %></h3>
+  <p><%= @movie.genre %></p>
+
+
+
+
+  <%= button_to "delete comment", movie_path(@movie), method: :delete %>
+                                <%# "/movies/:id" %>
+
+
+
+  <h3>Users Who Want to Watch</h3>
+
+  <% @movie.users.each do |user|%>
+    <p><%= user.name %></p>
+  <% end  %>
+
+<% else %>
+
+  <h1>show Ad</h1>
+
+  <iframe width="800" height="800" src="https://www.youtube.com/embed/CRRlbK5w8AE?list=PLJcvZ5CBXDgxolVf8FKjGdgrKhgyEF9GV" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+  <%= button_to "Yup Watched", page_reset_path, method: :delete %>
+<% end %>

@@ -1,0 +1,22 @@
+
+<div class="background-image"> <%= image_tag "12.jpg", :class => "img-fluid" %> </div>
+<p><% if flash[:errors] %></p>
+<% flash[:errors].each do |msg| %>
+<p><%= msg %></p>
+<% end %>
+<% end %>
+
+<div class= "new_review_container">
+        <div class="form-group">
+            <h1>Leave a Review </h1>
+        <%= form_with model: @review do |f| %>
+            <%= f.number_field :food_rating, placeholder: "Food Rating" %><br>
+            <%= f.number_field :decor_rating, placeholder: "Decor Rating" %><br>
+            <%= f.number_field :service_rating, placeholder: "Service Rating"%><br>
+            <%= f.text_area :description, placeholder: "description" %><br><br>
+            <%= f.collection_select :reservation_id, @reservations, :id, :restaurant_name, placeholder: "restaurants"   %> <br><br>
+            <%= f.submit class: "btn btn-primary btn-block" %>
+        <% end %>
+    </div>
+    
+</div>

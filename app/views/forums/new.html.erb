@@ -1,0 +1,13 @@
+<div class='form-container'>
+  <h1>Debate Forum</h1>
+
+  <%= form_for @forum do |f| %>
+
+    <div class="form-input">
+      <%= f.label :movie_id %>
+      <%= f.collection_select :movie_id, @movies, :id, :title %>
+    </div>
+
+    <%= f.submit class: 'form-btn'%>
+  <% end %>
+</div>
